@@ -1,0 +1,11 @@
+framework module HipsSDK {
+  umbrella header "HipsSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module HipsSDK.Swift {
+    header "HipsSDK-Swift.h"
+    requires objc
+}
