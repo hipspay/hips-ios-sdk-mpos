@@ -75,7 +75,7 @@ This git repository contains a demo app for development reference. If you need t
 		<string>com.miura.shuttle</string>
 		<string>com.miura.rpi</string>
 	</array>
-
+```
 
 # Integration checklist
 Please make sure you tick all on this integration checklist to be Hips Certified.
