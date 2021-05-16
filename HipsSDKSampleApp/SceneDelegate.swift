@@ -2,7 +2,6 @@
 //  SceneDelegate.swift
 //  HipsSDKExample
 //
-//  Created by Darko Kulakov on 2020-03-25.
 //  Copyright © 2020 Hips. All rights reserved.
 //
 

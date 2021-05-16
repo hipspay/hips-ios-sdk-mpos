@@ -2,7 +2,6 @@
 //  LandingViewController.swift
 //  HipsSDKExample
 //
-//  Created by Darko Kulakov on 2020-04-05.
 //  Copyright © 2020 Hips. All rights reserved.
 //
 

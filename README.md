@@ -1,4 +1,4 @@
-# Hips Apple iOS SDK 0.9
+# Hips Apple iOS SDK 0.9.1
 Hips Apple iOS SDK is a library that provides the native In-App interaction of performing the Hips MPOS payment directly from an app on the iOS device.
 
 # Project Status
@@ -37,7 +37,10 @@ Supported features
 | Version | Description                                                                                                                          | Date       |
 |:--------|:-------------------------------------------------------------------------------------------------------------------------------------|:-----------|
 
+| `0.9.1` | Bug fixes and payment flow updates
+
 | `0.9.0` | Pre-release version                                                                                                               | 2021-04-22 |
+
 
 # Demo app
 ----
@@ -54,6 +57,24 @@ This git repository contains a demo app for development reference. If you need t
  - Go to your project General tab.
  - Add HipsSDK.framework to Framework, Libraries, and Embedded Content
  - Set the Embed value in the Framework, Libraries, and Embeddfed Content to Embed & Sign
+
+# App Info.plist entries
+
+``` 
+<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Needed for payment</string>
+
+<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>external-accessory</string>
+	</array>
+
+<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.miura.shuttle</string>
+		<string>com.miura.rpi</string>
+	</array>
 
 
 # Integration checklist
