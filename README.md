@@ -91,8 +91,6 @@ Please make sure you tick all on this integration checklist to be Hips Certified
 
 # Usage
 ----
-## HipsSDK Initialization
-After loading the main view controller, call `HipsSDK.initialize()` to load default HipsSDK parameters. It will return true if there is a default terminal set and if it is activated (see below for activation and setting default terminal)
 
 ## Hips Settings
 The SDK provides a UI to handle terminal settings. Launch Hips Settings by calling `HipsSDK.deviceSettings()`.
