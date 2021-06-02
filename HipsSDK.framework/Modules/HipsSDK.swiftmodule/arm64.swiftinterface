@@ -183,7 +183,7 @@ public enum HipsDeclineErrorCode : Swift.Int, Swift.CaseIterable, Swift.Codable 
   }
 }
 public class HipsPaymentRequest : Swift.Codable {
-  public init(amountInCents: Swift.Int, vatInCents: Swift.Int, cashbackInCents: Swift.Int, reference: Swift.String, employeeNumber: Swift.String = "", cashierToken: Swift.String = "", metadata1: Swift.String = "", metadata2: Swift.String = "", webHook: Swift.String = "", currencyISO: Swift.String, tipFlowType: HipsSDK.HipsTipType, transactionType: HipsSDK.HipsTransactionType, isOfflinePayment: Swift.Bool = false, isTestMode: Swift.Bool = true)
+  public init(amountInCents: Swift.Int, vatInCents: Swift.Int, cashbackInCents: Swift.Int, reference: Swift.String, employeeNumber: Swift.String? = nil, cashierToken: Swift.String? = nil, metadata1: Swift.String? = nil, metadata2: Swift.String? = nil, webHook: Swift.String? = nil, currencyISO: Swift.String, tipFlowType: HipsSDK.HipsTipType, transactionType: HipsSDK.HipsTransactionType, isOfflinePayment: Swift.Bool = false, isTestMode: Swift.Bool = true)
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
