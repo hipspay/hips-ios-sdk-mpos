@@ -17,6 +17,11 @@ extension Array {
   }
 }
 extension String {
+  public var toDigitsCode: Swift.String {
+    get
+  }
+}
+extension String {
   public var toCurrencyCode: Swift.String {
     get
   }
@@ -52,21 +57,6 @@ public enum HipsTransactionType : Swift.String, Swift.Codable {
     get
   }
 }
-public enum HipsCurrencyCode : Swift.UInt, Swift.Codable {
-  case gbp
-  case usd
-  case eur
-  case pln
-  case sek
-  public func description() -> Swift.String
-  public static func code(_ code: Swift.String) -> Swift.UInt
-  public static func toList() -> [HipsSDK.HipsCurrencyCode]
-  public init?(rawValue: Swift.UInt)
-  public typealias RawValue = Swift.UInt
-  public var rawValue: Swift.UInt {
-    get
-  }
-}
 public protocol HipsUpdateFlowDelegate {
   func updateFlowFinished(_ serial: Swift.String, _ success: Swift.Bool)
 }
@@ -76,7 +66,6 @@ public protocol HipsPaymentFlowDelegate {
 @_hasMissingDesignatedInitializers @available(iOS 13.0, *)
 public class HipsSDK {
   public static func deviceSettings() -> UIKit.UIViewController?
-  public static func preauth(_ parent: UIKit.UIViewController, amount: Swift.Int, reference: Swift.String, testMode: Swift.Bool, offline: Swift.Bool, currency: HipsSDK.HipsCurrencyCode, tiptype: HipsSDK.HipsTipType, completion: @escaping (UIKit.UIViewController?) -> Swift.Void)
   public static func loyalty(_ parent: UIKit.UIViewController, transaction: HipsSDK.HipsNonPaymentRequest, requestCode: Swift.Int, completion: @escaping (HipsSDK.HipsNonPaymentMagSwipeResult?) -> Swift.Void)
   public static func activate(_ parent: UIKit.UIViewController) -> Swift.Bool
   public static func update(_ parent: UIKit.UIViewController) -> Swift.Bool
@@ -318,9 +307,6 @@ extension HipsSDK.HipsTipType : Swift.RawRepresentable {}
 extension HipsSDK.HipsTransactionType : Swift.Equatable {}
 extension HipsSDK.HipsTransactionType : Swift.Hashable {}
 extension HipsSDK.HipsTransactionType : Swift.RawRepresentable {}
-extension HipsSDK.HipsCurrencyCode : Swift.Equatable {}
-extension HipsSDK.HipsCurrencyCode : Swift.Hashable {}
-extension HipsSDK.HipsCurrencyCode : Swift.RawRepresentable {}
 extension HipsSDK.HipsDeclineErrorCode : Swift.Equatable {}
 extension HipsSDK.HipsDeclineErrorCode : Swift.Hashable {}
 extension HipsSDK.HipsDeclineErrorCode : Swift.RawRepresentable {}

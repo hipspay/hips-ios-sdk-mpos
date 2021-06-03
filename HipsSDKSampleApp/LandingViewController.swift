@@ -75,7 +75,7 @@ class LandingViewController: UIViewController {
     
     var transactionResult : HipsTransactionResult? = nil
 
-    
+    let currencies = ["EUR","GBP","SEK","PLN","USD"]
     func setupInitialValues(){
         
         self.txtAmount.text = "1"
@@ -115,7 +115,7 @@ class LandingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.pickCurrency.selectRow(HipsCurrencyCode.toList().firstIndex(of: HipsCurrencyCode.gbp) ?? 0, inComponent: 0, animated: false)
+        self.pickCurrency.selectRow(0, inComponent: 0, animated: false)
         self.pickTipFlow.selectRow(HipsTipType.toList().firstIndex(of: HipsTipType.none) ?? 0, inComponent: 0, animated: false)
         self.pickTransactionType.selectRow(HipsTransactionType.toList().firstIndex(of: HipsTransactionType.purchase) ?? 0, inComponent: 0, animated: false)
 
@@ -203,7 +203,7 @@ class LandingViewController: UIViewController {
         let vat = 0
         let cashback = Int(self.txtCashBack.text ?? "0") ?? 0
         let reference = self.txtReference.text ?? "-"
-        let currencyISO = HipsCurrencyCode.toList()[ self.pickCurrency.selectedRow(inComponent: 0)].description()
+        let currencyISO = currencies[self.pickCurrency.selectedRow(inComponent: 0)]
         let tipFlowType = HipsTipType.toList()[self.pickTipFlow.selectedRow(inComponent: 0)]
         let transactionType = HipsTransactionType.toList()[self.pickTransactionType.selectedRow(inComponent: 0)]
         let isOffline = self.switchOfflineMode.isOn
@@ -246,7 +246,7 @@ class LandingViewController: UIViewController {
                 return HipsTipType.toList().count
                 
             case pickCurrency.tag:
-                return HipsCurrencyCode.toList().count
+                return currencies.count
             case pickTransactionType.tag:
                 return HipsTransactionType.toList().count
                 
@@ -263,7 +263,7 @@ class LandingViewController: UIViewController {
                 return HipsTipType.toList()[row].rawValue
                 
             case pickCurrency.tag:
-                return HipsCurrencyCode.toList()[row].description()
+                return currencies[row]
             case pickTransactionType.tag:
                 return HipsTransactionType.toList()[row].rawValue
                 

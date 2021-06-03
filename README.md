@@ -37,6 +37,8 @@ Supported features
 | Version | Description                                                                                                                          | Date       |
 |:--------|:-------------------------------------------------------------------------------------------------------------------------------------|:-----------|
 
+| `0.9.4` | Updated currency handling and bug fixes
+
 | `0.9.3` | Bug fixes
 
 | `0.9.2` | Bug fixes
