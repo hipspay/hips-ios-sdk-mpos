@@ -37,6 +37,8 @@ Supported features
 | Version | Description                                                                                                                          | Date       |
 |:--------|:-------------------------------------------------------------------------------------------------------------------------------------|:-----------|
 
+| `0.9.5` | Hips UI closes when transaction ends with annimation. Bug fixes.
+
 | `0.9.4` | Updated currency handling and bug fixes
 
 | `0.9.3` | Bug fixes

@@ -66,13 +66,13 @@ public protocol HipsPaymentFlowDelegate {
 @_hasMissingDesignatedInitializers @available(iOS 13.0, *)
 public class HipsSDK {
   public static func deviceSettings() -> UIKit.UIViewController?
-  public static func loyalty(_ parent: UIKit.UIViewController, transaction: HipsSDK.HipsNonPaymentRequest, requestCode: Swift.Int, completion: @escaping (HipsSDK.HipsNonPaymentMagSwipeResult?) -> Swift.Void)
   public static func activate(_ parent: UIKit.UIViewController) -> Swift.Bool
   public static func update(_ parent: UIKit.UIViewController) -> Swift.Bool
   public static func capture(_ parent: UIKit.UIViewController, request: HipsSDK.HipsCaptureRequest, completion: @escaping (HipsSDK.HipsTransactionResult?) -> Swift.Void)
   public static func refund(_ parent: UIKit.UIViewController, _ request: HipsSDK.HipsRefundRequest, completion: @escaping (HipsSDK.HipsTransactionResult?) -> Swift.Void)
   public static func pay(_ parent: UIKit.UIViewController, payment: HipsSDK.HipsPaymentRequest) -> Swift.Bool
   public static func offlineUpload(_ vc: UIKit.UIViewController, completion: @escaping (HipsSDK.HipsOfflineTransactionResult?) -> ())
+  public static func loyalty(_ parent: UIKit.UIViewController, transaction: HipsSDK.HipsNonPaymentRequest, requestCode: Swift.Int, completion: @escaping (HipsSDK.HipsNonPaymentMagSwipeResult?) -> Swift.Void)
   @objc deinit
 }
 public struct HipsNonPaymentMagSwipeResult : Swift.Codable {
