@@ -1,6 +1,6 @@
 //
 //  LandingViewController.swift
-//  HipsSDKExample
+//  HipsExample
 //
 //  Copyright © 2020 Hips. All rights reserved.
 //
@@ -123,7 +123,7 @@ class LandingViewController: UIViewController {
     }
     
     @IBAction func hipsSettingsButtonTapped(_ sender: Any) {
-        guard let deviceSettingsVC = HipsSDK.deviceSettings() else { return }
+        guard let deviceSettingsVC = Hips.deviceSettings() else { return }
         navigationController?.pushViewController(deviceSettingsVC, animated: true)
     }
     
@@ -131,7 +131,7 @@ class LandingViewController: UIViewController {
     @IBAction func loyaltyButtonTapped(_ sender: Any) {
     
         let request = HipsNonPaymentRequest(with: self.txtNonPayment.text ?? "No text entered")
-        HipsSDK.loyalty(self, transaction: request, requestCode: 123) { (result) in
+        Hips.loyalty(self, transaction: request, requestCode: 123) { (result) in
             
                 DispatchQueue.main.async {
                     
@@ -143,7 +143,7 @@ class LandingViewController: UIViewController {
     
     @IBAction func offlineUploadButtonTapped(_ sender: Any) {
         
-        HipsSDK.offlineUpload(self) { (uploads) in
+        Hips.offlineUpload(self) { (uploads) in
             DispatchQueue.main.async {
                 
                 self.lblTransactionResult.text = "Offline upload returned \(uploads?.accepted.count ?? 0) accepted transactions"
@@ -152,15 +152,15 @@ class LandingViewController: UIViewController {
     }
     
     @IBAction func activateTerminalTapped(_ sender: Any) {
-        if(HipsSDK.activate(self))
+        if(Hips.activate(self))
         {
-            print("Unable to load HipsSDK update flow")
+            print("Unable to load Hips update flow")
         }
     }
     @IBAction func updateTerminalTapped(_ sender: Any) {
-        if(HipsSDK.update(self))
+        if(Hips.update(self))
         {
-            print("Unable to load HipsSDK update flow")
+            print("Unable to load Hips update flow")
         }
     }
     
@@ -173,7 +173,7 @@ class LandingViewController: UIViewController {
             return
         }
         let refundRequest = HipsRefundRequest(amountInCents:  Int.init(self.txtAmount.text!) ?? 0, transactionId: self.transactionResult!.transactionID!, isTest: self.switchTestMode.isOn)
-        HipsSDK.refund(self, refundRequest) { result in
+        Hips.refund(self, refundRequest) { result in
             DispatchQueue.main.async {
                
                 self.lblTransactionResult.text = "(\(result!.errorCode!)) \(result!.errorMessage!)"
@@ -189,7 +189,7 @@ class LandingViewController: UIViewController {
             return
         }
         let captureRequest = HipsCaptureRequest.init(amountInCents:  Int.init(self.txtAmount.text!) ?? 0, transactionId: self.transactionResult!.transactionID!, isTest: self.switchTestMode.isOn)
-        HipsSDK.capture(self, request: captureRequest) { result in
+        Hips.capture(self, request: captureRequest) { result in
             DispatchQueue.main.async {
                
                 self.lblTransactionResult.text = "(\(result!.errorCode!)) \(result!.errorMessage!)"
@@ -209,7 +209,7 @@ class LandingViewController: UIViewController {
         let isOffline = self.switchOfflineMode.isOn
         
         let myReq = HipsPaymentRequest.init(amountInCents: amount, vatInCents: vat, cashbackInCents: cashback, reference: reference, currencyISO: currencyISO, tipFlowType: tipFlowType, transactionType: transactionType, isOfflinePayment: isOffline, isTestMode: self.switchTestMode.isOn)
-        let result = HipsSDK.pay(self, payment: myReq)
+        let result = Hips.pay(self, payment: myReq)
         if(result == false)
         {
             self.lblTransactionResult.text = "Unable to start payment, payment already started, bluetooth not connected or no default terminal found"

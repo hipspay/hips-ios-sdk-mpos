@@ -65,7 +65,7 @@ public protocol HipsPaymentFlowDelegate {
   func paymentFlowFinished(_ result: HipsSDK.HipsTransactionResult)
 }
 @_hasMissingDesignatedInitializers @available(iOS 13.0, *)
-public class HipsSDK {
+public class Hips {
   public static func deviceSettings() -> UIKit.UIViewController?
   public static func activate(_ parent: UIKit.UIViewController) -> Swift.Bool
   public static func update(_ parent: UIKit.UIViewController) -> Swift.Bool

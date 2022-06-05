@@ -13,18 +13,18 @@
 		0B012D052602A0C800B5AB54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B012D042602A0C800B5AB54 /* Assets.xcassets */; };
 		0B012D082602A0C800B5AB54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B012D062602A0C800B5AB54 /* LaunchScreen.storyboard */; };
 		0BA16792261BC1F800BFBF7B /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA16791261BC1F800BFBF7B /* LandingViewController.swift */; };
-		0BFCA17426318ED500313369 /* HipsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFCA17226318ECC00313369 /* HipsSDK.framework */; };
-		0BFCA17526318ED500313369 /* HipsSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFCA17226318ECC00313369 /* HipsSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0ECBF137284BCAE90061BCD8 /* HipsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ECBF135284BCACA0061BCD8 /* HipsSDK.framework */; };
+		0ECBF138284BCAE90061BCD8 /* HipsSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0ECBF135284BCACA0061BCD8 /* HipsSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0B012D7E2603E8E100B5AB54 /* Embed Frameworks */ = {
+		0ECBF133284BC58E0061BCD8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0BFCA17526318ED500313369 /* HipsSDK.framework in Embed Frameworks */,
+				0ECBF138284BCAE90061BCD8 /* HipsSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,7 +40,8 @@
 		0B012D072602A0C800B5AB54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B012D092602A0C800B5AB54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BA16791261BC1F800BFBF7B /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
-		0BFCA17226318ECC00313369 /* HipsSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HipsSDK.framework; sourceTree = "<group>"; };
+		0ECBF119284B7B440061BCD8 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		0ECBF135284BCACA0061BCD8 /* HipsSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HipsSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BFCA17426318ED500313369 /* HipsSDK.framework in Frameworks */,
+				0ECBF137284BCAE90061BCD8 /* HipsSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,9 +59,10 @@
 		0B012CEF2602A0C500B5AB54 = {
 			isa = PBXGroup;
 			children = (
-				0BFCA17226318ECC00313369 /* HipsSDK.framework */,
+				0ECBF135284BCACA0061BCD8 /* HipsSDK.framework */,
 				0B012CFA2602A0C500B5AB54 /* HipsSDKSampleApp */,
 				0B012CF92602A0C500B5AB54 /* Products */,
+				0E06177328493A930063F86A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +88,14 @@
 			path = HipsSDKSampleApp;
 			sourceTree = "<group>";
 		};
+		0E06177328493A930063F86A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0ECBF119284B7B440061BCD8 /* ExternalAccessory.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,7 +106,7 @@
 				0B012CF42602A0C500B5AB54 /* Sources */,
 				0B012CF52602A0C500B5AB54 /* Frameworks */,
 				0B012CF62602A0C500B5AB54 /* Resources */,
-				0B012D7E2603E8E100B5AB54 /* Embed Frameworks */,
+				0ECBF133284BC58E0061BCD8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,10 +316,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_INTEGER = NO;
 				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = NO;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZP4ZFL8MYG;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HipsSDKSampleApp",
@@ -319,7 +333,7 @@
 				GCC_THREADSAFE_STATICS = YES;
 				GENERATE_PKGINFO_FILE = NO;
 				INFOPLIST_FILE = HipsSDKSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,7 +344,7 @@
 					"$(PROJECT_DIR)",
 				);
 				MARKETING_VERSION = 1.01;
-				PRODUCT_BUNDLE_IDENTIFIER = com.payment.HipsSDKSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.payments.HipsSDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -343,10 +357,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_INTEGER = NO;
 				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = NO;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZP4ZFL8MYG;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HipsSDKSampleApp",
@@ -356,7 +374,7 @@
 				GCC_THREADSAFE_STATICS = YES;
 				GENERATE_PKGINFO_FILE = NO;
 				INFOPLIST_FILE = HipsSDKSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,8 +385,9 @@
 					"$(PROJECT_DIR)",
 				);
 				MARKETING_VERSION = 1.01;
-				PRODUCT_BUNDLE_IDENTIFIER = com.payment.HipsSDKSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.payments.HipsSDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USE_HEADERMAP = YES;

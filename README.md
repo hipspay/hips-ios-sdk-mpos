@@ -37,6 +37,8 @@ Supported features
 | Version | Description                                                                                                                          | Date       |
 |:--------|:-------------------------------------------------------------------------------------------------------------------------------------|:-----------|
 
+| `0.9.8` | Updated for new iOS version support and new signature support. Changed HipsSDK class to Hips for future Swift version compatibility
+
 | `0.9.7` | Build for new iOS version.
 
 | `0.9.6` | Bug fixes.
@@ -93,8 +95,8 @@ This git repository contains a demo app for development reference. If you need t
 Please make sure you tick all on this integration checklist to be Hips Certified.
 - [x] Make sure you pass any reference for the payment in the reference parameter or as meta data.
 - [x] Make sure the data is passed to the server by logging in to the Hips dashboard and look in the API logs
-- [x] If you get `requiresParameterDownload` = `true` in the response object you must run `HipsSDK.update()` function as soon as possible to make sure the terminal is up to date.
-- [x] Before any transaction is performed, an activation must take place. It can be done via settings or by running `HipsSDK.activate().
+- [x] If you get `requiresParameterDownload` = `true` in the response object you must run `Hips.update()` function as soon as possible to make sure the terminal is up to date.
+- [x] Before any transaction is performed, an activation must take place. It can be done via settings or by running `Hips.activate().
 - [x] Before activation can take place, the device must be bluetooth paired.
 - [x] Do not delete the app if you have stored offline transactions (`requiresTransactionUpload`) before they are posted to Hips.
 
@@ -103,7 +105,7 @@ Please make sure you tick all on this integration checklist to be Hips Certified
 ----
 
 ## Hips Settings
-The SDK provides a UI to handle terminal settings. Launch Hips Settings by calling `HipsSDK.deviceSettings()`.
+The SDK provides a UI to handle terminal settings. Launch Hips Settings by calling `Hips.deviceSettings()`.
 
 #### Select Default terminal
 Make sure you have paired your Terminal with your iOS device. You do this via your Bluetooth settings. IMPORTANT: Your can only see paired terminals in Hips Settings Device selection
@@ -178,7 +180,7 @@ Pass your `HipsPaymentRequest` along with your view controller (`self` assuming 
 
     let myReq = HipsPaymentRequest(amountInCents: 100, vatInCents: 0, cashbackInCents: 0, reference: "This is a test payment", currencyISO: "GBP", tipFlowType:  HipsTipType.none, transactionType: HipsTransactionType.purchase, isOfflinePayment: false, isTestMode: true)
     
-    let result = HipsSDK.pay(self, payment: myReq)
+    let result = Hips.pay(self, payment: myReq)
 
 
 ```
@@ -266,12 +268,12 @@ To make a new Refund, create your `HipsRefundRequest` body.
 
 #### Refund Requests
 
-Pass your `HipsRefundRequest` along with your view controller to `HipsSDK.refund()` to start a new HipsUI Refund session.
+Pass your `HipsRefundRequest` along with your view controller to `Hips.refund()` to start a new HipsUI Refund session.
 ```Swift
 
     let refundRequest = HipsRefundRequest(amountInCents:  100, transactionId: "1234567890", isTest: true)
     
-    HipsSDK.refund(self, refundRequest) { result in
+    Hips.refund(self, refundRequest) { result in
         print(result.description())
     }
 ```
@@ -301,11 +303,11 @@ To make a new payment, create your `HipsCaptureRequest` body.
 
 #### Capture Requests
 
-Pass your `HipsCaptureRequest` along with your view controller instance to `HipsSDK.capture()` to start a new HipsUI Payment session.
+Pass your `HipsCaptureRequest` along with your view controller instance to `Hips.capture()` to start a new HipsUI Payment session.
 ```kotlin
     let refundRequest = HipsRefundRequest(amountInCents:  100, transactionId: "1234567890", isTest: true)
 
-    HipsSDK.refund(self, refundRequest) { result in
+    Hips.refund(self, refundRequest) { result in
        print(result.description())
     }
 }
@@ -317,7 +319,7 @@ Check status for approved or declined transactions in `HipsTransactionResult`, a
 
 ## Make Non Payments - Loyalty cards
 
-Launch a mag swipe session by calling `HipsSDK.loyalty()`. Provide a text string to display on your terminal.
+Launch a mag swipe session by calling `Hips.loyalty()`. Provide a text string to display on your terminal.
 The SDK interacts by receiving and returning Request and Result types.
 
 
@@ -334,7 +336,7 @@ The SDK interacts by receiving and returning Request and Result types.
 ```Swift
     let request = HipsNonPaymentRequest(with: "Please swipe card")
     
-    HipsSDK.loyalty(self, transaction: request, requestCode: 123) { (result) in
+    Hips.loyalty(self, transaction: request, requestCode: 123) { (result) in
         print(result!.description())
     }
 
@@ -356,7 +358,7 @@ Check status for approved or declined transactions in `HipsNonPaymentMagSwipeRes
 
 ## Offline Batch Upload via HipsSDK
 
-Trigger manual offline batch uploads by in invoking `HipsSDK.offlineUpload()`. This will upload any existing offline transactions stored in the SDK
+Trigger manual offline batch uploads by in invoking `Hips.offlineUpload()`. This will upload any existing offline transactions stored in the SDK
 - Requires: `TerminalApiKeyAuth`
 - Result: `HipsOfflineTransactionResult`
 
@@ -371,7 +373,7 @@ Trigger manual offline batch uploads by in invoking `HipsSDK.offlineUpload()`. T
 #### Trigger Offline Batch Upload
 ```Swift
 
-    HipsSDK.offlineUpload(self) { (offlineUploadResponse) in
+    Hips.offlineUpload(self) { (offlineUploadResponse) in
         guard let response = offlineUploadResponse else
         {
             print("Error uploading transactions, please try again later...")
@@ -385,7 +387,7 @@ Trigger manual offline batch uploads by in invoking `HipsSDK.offlineUpload()`. T
 
 ## Terminal Activation via HipsSDK
 
-Launch Activation UI by in invoking `HipsSDK.activate()`. Select a paired device and start the activation process.  Read more about the steps involved in section **Hips Settings - Activate terminal**
+Launch Activation UI by in invoking `Hips.activate()`. Select a paired device and start the activation process.  Read more about the steps involved in section **Hips Settings - Activate terminal**
 
 - Result: `Bool`
 
@@ -393,9 +395,9 @@ Returns true if the process is initated successfully
 
 #### Trigger Terminal Activation
 ```Swift
-    if(HipsSDK.activate(self))
+    if(Hips.activate(self))
     {
-        print("Unable to load HipsSDK update flow")
+        print("Unable to load Hips update flow")
     }
 ```
 
@@ -413,7 +415,7 @@ extension MyViewController : HipsUpdateFlowDelegate {
 
 ## Terminal Parameter Update via HipsSDK
 
-Launch Parameter Update UI by in invoking `HipsSDK.update()`. The SDK will attempt to connect to your `Default Device`.  Read more about the steps involved in section **Hips Settings - Parameter updates**
+Launch Parameter Update UI by in invoking `Hips.update()`. The SDK will attempt to connect to your `Default Device`.  Read more about the steps involved in section **Hips Settings - Parameter updates**
 
 - Requires: `Default Device`,
 - Result: `Bool`
@@ -423,7 +425,7 @@ Returns true if the process is initiated successfully
 
 #### Trigger Terminal Parameter Update
 ```Swift
-    HipsSDK.update(self)
+    Hips.update(self)
 ```
 #### Terminal Parameter Update results 
 ```Swift
