@@ -40,6 +40,10 @@
 		<data>
 		bzn8uiYSUVWsbwfVGqS2ijkklFI=
 		</data>
+		<key>Info.plist</key>
+		<data>
+		E7Zlit+C5qb7fWcTMsk4vxUIP0g=
+		</data>
 		<key>Main.storyboardc/DevicesViewController.nib</key>
 		<data>
 		07Yr8VKKXYbA96z4LKsSrq9xMVQ=
@@ -74,11 +78,11 @@
 		</data>
 		<key>Modules/HipsSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		9yoVfXPTS/4QBxXY8NkmiScZ4g8=
+		0YPXMjM72HQBbfIigO08+6M+v/Q=
 		</data>
 		<key>Modules/HipsSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		2VPHD2+wuUa/sXtVyf9h2O6+BVU=
+		ZZXPw7e0aoSB8F5TaYNV006hO5s=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -234,14 +238,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PrrYFmVSBzbZ9b7Fa4seFXega5alZmLt9ontOT8y5YY=
+			7LIku7d7WTmWJ2H4mk/rgG9mIYFGuE1xfbSVIXXy2dA=
 			</data>
 		</dict>
 		<key>Modules/HipsSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zYoCQOpB+iX7mS5lCTl6nLE+0n5m7L5Y3Sz/fzPnLBQ=
+			rsbnGOST7h5eGz1sZ/54UrrggvBBNDG05FdiWdh7540=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

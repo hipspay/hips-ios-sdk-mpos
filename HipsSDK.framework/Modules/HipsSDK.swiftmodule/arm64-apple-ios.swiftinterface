@@ -98,7 +98,7 @@ public struct HipsNonPaymentMagSwipeResult : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-public enum HipsDeclineErrorCode : Swift.Int, Swift.CaseIterable, Swift.Codable {
+public enum HipsDeclineErrorCode : Swift.String, Swift.CaseIterable, Swift.Codable {
   case NOT_DECLINED
   case INSUFFICIENT_FUNDS
   case DECLINED
@@ -162,13 +162,13 @@ public enum HipsDeclineErrorCode : Swift.Int, Swift.CaseIterable, Swift.Codable 
   case TERMINAL_COMMUNICATION_ERROR
   case PARTIAL_REFUND_ERROR
   case NETWORK_ERROR
-  public init?(rawValue: Swift.Int)
+  public init?(rawValue: Swift.String)
   public typealias AllCases = [HipsSDK.HipsDeclineErrorCode]
-  public typealias RawValue = Swift.Int
+  public typealias RawValue = Swift.String
   public static var allCases: [HipsSDK.HipsDeclineErrorCode] {
     get
   }
-  public var rawValue: Swift.Int {
+  public var rawValue: Swift.String {
     get
   }
 }
@@ -206,7 +206,7 @@ public struct HipsTransactionResult : Swift.Codable {
   public var authorizationMethod: Swift.String?
   public var cardFingerprint: Swift.String?
   public var createdAt: Swift.String?
-  public var errorCode: Swift.Int?
+  public var errorCode: Swift.String?
   public var errorMessage: Swift.String?
   public var merchantAddressLine1: Swift.String?
   public var merchantAddressLine2: Swift.String?

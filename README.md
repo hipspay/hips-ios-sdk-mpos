@@ -1,4 +1,4 @@
-# Hips Apple iOS SDK 0.9.7
+# Hips Apple iOS SDK 0.9.9
 Hips Apple iOS SDK is a library that provides the native In-App interaction of performing the Hips MPOS payment directly from an app on the iOS device.
 
 # Project Status
@@ -36,6 +36,7 @@ Supported features
 #### Change log
 | Version | Description                                                                                                                          | Date       |
 |:--------|:-------------------------------------------------------------------------------------------------------------------------------------|:-----------|
+| `0.9.9` | Updated error responses
 
 | `0.9.8` | Updated for new iOS version support and new signature support. Changed HipsSDK class to Hips for future Swift version compatibility
 
